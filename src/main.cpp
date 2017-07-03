@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <VectorMath.hpp>
+#include <Vector2.hpp>
+#include <CollisionDetection.hpp>
 
 using namespace std;
 

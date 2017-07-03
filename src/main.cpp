@@ -10,12 +10,14 @@ int main()
     sf::RenderWindow window( sf::VideoMode( 800, 600 ), "Sneak" );
     sf::Event event;
 
-    Vector2f laughin(1.0f, 1.0f);
-    Vector2f At(1, 1);
+    ////////////////////////
+    // TESTING PLAYGROUND //
+    ////////////////////////
 
-    Vector2f You = laughin + At;
 
-    You.PrintData( Cartesian );
+    ////////////////////////
+    //   STOP PLAYING!    //
+    ////////////////////////
 
     while ( window.isOpen() ) {
         while ( window.pollEvent( event ) ) {

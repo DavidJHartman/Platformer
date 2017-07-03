@@ -1,7 +1,7 @@
 #ifndef RECTANGLE_H_INCLUDED
 #define RECTANGLE_H_INCLUDED
 
-#include <Vector2.hpp>
+#include <VectorMath.hpp>
 
 template <class T>
 struct Rectangle{

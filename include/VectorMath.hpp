@@ -27,4 +27,9 @@ void rotateVector( Vector2<T>& vec, float angle ) {
     vec = Vector2<T>( vec.x * cos( angle ) - vec.y * sin( angle ), vec.x * sin( angle ) + vec.y * cos( angle ) );
 }
 
+template <class T>
+void rotateVectorRight( Vector2<T>& vec ) {
+    vec.x *= -1;
+}
+
 #endif // VECTORMATH_HPP_INCLUDED

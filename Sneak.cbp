@@ -14,7 +14,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-DSFML_STAIC" />
-					<Add directory="E:/Platformer/Sneak/include" />
+					<Add directory="E:/Platformer/include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics-s-d" />
@@ -45,7 +45,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Vector2.hpp" />
-		<Unit filename="main.cpp" />
+		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

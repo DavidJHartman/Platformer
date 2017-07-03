@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <Vector2.hpp>
+#include <VectorMath.hpp>
 
 using namespace std;
 
@@ -13,6 +13,7 @@ int main()
     ////////////////////////
     // TESTING PLAYGROUND //
     ////////////////////////
+
 
 
     ////////////////////////

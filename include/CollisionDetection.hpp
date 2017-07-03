@@ -8,6 +8,9 @@ bool axisAlignedBoundingBoxes( Rectangle& box1, Rectangle& box2 ) {
             return true;
         }
     }
+    else{
+        return false;
+    }
 
 }
 #endif // COLLISIONDETECTION_HPP_INCLUDED

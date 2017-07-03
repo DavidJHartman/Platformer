@@ -1,12 +1,13 @@
 #ifndef RECTANGLE_H_INCLUDED
 #define RECTANGLE_H_INCLUDED
 
+#include <Vector2.hpp>
+
 template <class T>
 struct Rectangle{
 
     T Position;
-    T Width;
-    T Height;
+    T Dimensions;
     float Rotation;
 
 };

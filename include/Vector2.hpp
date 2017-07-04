@@ -34,6 +34,15 @@ public:
     // OVERLOADED OPERATORS //
     //////////////////////////
 
+    // Mutable operators
+    T& operator [] ( int i ) {
+        switch( i ) {
+        case 0:return x;
+        case 1:return y;
+        default:return nullptr;
+        }
+    }
+
     // Addition operators
     Vector2<T> operator + ( Vector2& V ) {
         return Vector2( x + V.x, y + V.y );

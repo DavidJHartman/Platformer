@@ -4,10 +4,10 @@
 #include <VectorMath.hpp>
 
 template <class T>
-struct Rectangle{
+class Rectangle{
 
     T Position;
-    T Dimensions;
+    T HalfDimensions;
     float Rotation;
 
 };

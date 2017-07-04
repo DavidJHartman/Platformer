@@ -44,7 +44,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/CollisionDetection.hpp" />
+		<Unit filename="include/Node.hpp" />
+		<Unit filename="include/Rectangle.h" />
 		<Unit filename="include/Vector2.hpp" />
+		<Unit filename="include/VectorMath.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

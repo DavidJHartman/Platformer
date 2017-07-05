@@ -5,7 +5,7 @@ template <class T>
 class Circle{
 
     T Position;
-    float Radius
+    float Radius;
 
 };
 

@@ -6,6 +6,8 @@
 template <class T>
 class Rectangle{
 
+public:
+
     T Position;
     T HalfDimensions;
     float Rotation;

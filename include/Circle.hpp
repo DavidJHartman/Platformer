@@ -4,6 +4,8 @@
 template <class T>
 class Circle{
 
+public:
+
     T Position;
     float Radius;
 

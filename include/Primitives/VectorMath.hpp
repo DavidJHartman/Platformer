@@ -1,6 +1,6 @@
 #ifndef VECTORMATH_HPP_INCLUDED
 #define VECTORMATH_HPP_INCLUDED
-#include <Vector2.hpp>
+#include <Primitives/Vector2.hpp>
 
 template <class T>
 double dotProduct( Vector2<T>& vec1, Vector2<T>& vec2 ) {

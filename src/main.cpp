@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <CollisionDetection.hpp>
+#include <Physics/CollisionDetection.hpp>
 
 using namespace std;
 
@@ -13,6 +13,9 @@ int main()
     ////////////////////////
     // TESTING PLAYGROUND //
     ////////////////////////
+
+    int Width = 3;
+    int Height = 3;
 
 
 
@@ -30,4 +33,5 @@ int main()
 
         window.display();
     }
+    return 0;
 }

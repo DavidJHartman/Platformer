@@ -16,5 +16,11 @@ void TileMap::Render() {
             // DRAW
         }
     }
+}
+
+bool TileMap::loadMap( std::string filename ) {
+
+    tinyxml2::XMLDocument doc;
+    doc.LoadFile(filename.c_str());
 
 }

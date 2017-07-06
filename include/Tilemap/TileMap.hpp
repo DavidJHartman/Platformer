@@ -1,6 +1,9 @@
 #ifndef TILEMAP_HPP_INCLUDED
 #define TILEMAP_HPP_INCLUDED
 #include <string>
+#include <Tilemap/Layer.hpp>
+#include <Tilemap/TileSet.hpp>
+#include <XML/tinyxml2.h>
 
 enum TileMapOrientation {
     orthogonal,
@@ -26,6 +29,10 @@ struct TileMapRenderOrder {
 };
 
 class TileMap {
+
+    Layer* layers;
+    TileSet* tilesets;
+
     std::string VersionNumber;
     std::string TiledVersion;
 
@@ -48,6 +55,8 @@ class TileMap {
 
 public:
     void Render();
+
+    bool loadMap(std::string filename);
 
 
 };

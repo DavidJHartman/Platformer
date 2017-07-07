@@ -14,10 +14,12 @@ int main()
     // TESTING PLAYGROUND //
     ////////////////////////
 
-    int Width = 3;
-    int Height = 3;
+    Vector2f a ( 2.0f, 2.0f);
+    Vector2f b ( 1.0f, 0.0f);
 
+    a = projectVector(a, b);
 
+    a.PrintData( Cartesian );
 
     ////////////////////////
     //   STOP PLAYING!    //

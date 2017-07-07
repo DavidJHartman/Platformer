@@ -46,12 +46,17 @@
 		</Compiler>
 		<Unit filename="include/Physics/CollisionDetection.hpp" />
 		<Unit filename="include/Primitives/Circle.hpp" />
+		<Unit filename="include/Primitives/Matrix.hpp" />
 		<Unit filename="include/Primitives/Rectangle.h" />
 		<Unit filename="include/Primitives/Vector2.hpp" />
 		<Unit filename="include/Primitives/VectorMath.hpp" />
+		<Unit filename="include/Tilemap/Layer.hpp" />
 		<Unit filename="include/Tilemap/TileMap.hpp" />
+		<Unit filename="include/Tilemap/TileSet.hpp" />
 		<Unit filename="include/Tree Structures/Node.hpp" />
+		<Unit filename="include/XML/tinyxml2.h" />
 		<Unit filename="src/TileMap.cpp" />
+		<Unit filename="src/XML/tinyxml2.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

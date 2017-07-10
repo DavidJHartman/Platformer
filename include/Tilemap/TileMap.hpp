@@ -29,9 +29,9 @@ struct TileMapRenderOrder {
 };
 
 class TileMap {
-
-    Layer* layers;
-    TileSet* tilesets;
+public:
+    std::vector<Layer> layers;
+    std::vector<TileSet> tilesets;
 
     std::string VersionNumber;
     std::string TiledVersion;
@@ -54,7 +54,7 @@ class TileMap {
     int nextObjectID;
 
 public:
-    void Render();
+    void Render(sf::RenderWindow& window);
 
     bool loadMap(std::string filename);
 

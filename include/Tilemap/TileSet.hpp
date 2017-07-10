@@ -1,8 +1,18 @@
 #ifndef TILESET_HPP_INCLUDED
 #define TILESET_HPP_INCLUDED
 #include <SFML/Graphics.hpp>
+#include <XML/tinyxml2.h>
+#include <iostream>
+#include <stdlib.h>
+#include <string>
 
 class TileSet {
+public:
+    sf::Texture texture;
+    sf::Sprite sprite;
+
+//public:
+
     int firstGID;
 
     std::string source;
@@ -14,6 +24,9 @@ class TileSet {
 
     int tileCount;
     int columns;
+
+    bool LoadTileset( std::string filename );
+    void Draw( sf::RenderWindow& window, int id, int x, int y );
 };
 
 #endif // TILESET_HPP_INCLUDED

@@ -30,7 +30,9 @@ public:
 
     void interaction(sf::Vector2f mousePosition, bool clicked);
 
-    void setHoverFunction( void* hover_function );
+    void setHoverFunction( void (*newHoverFunc)(void**, ButtonState*) ){ this->hover_function = newHoverFunc; }
+    void setClickedFunction( void (*newClickedFunc)(void**, ButtonState*) ){ this->clicked_function = newClickedFunc; }
+    void setReleasedFunction( void (*newReleasedFunc)(void**, ButtonState*) ){ this->released_function = newReleasedFunc; }
 
     UIObject(){}
     UIObject(Vector2f Position, Vector2f Dimensions);

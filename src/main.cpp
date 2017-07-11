@@ -3,8 +3,6 @@
 #include <Tilemap/TileMap.hpp>
 #include <UI/UI.hpp>
 
-void hover_function(void** objectsInteractedWith, ButtonState* state) {std::cout << "neato";}
-
 int main()
 {
 
@@ -17,12 +15,7 @@ int main()
     // TESTING PLAYGROUND //
     ////////////////////////
 
-    TileMap newMap;
-    newMap.loadMap("Maps/TestMap.tmx");
 
-    UIObject newObject(Vector2f(0,0), Vector2f(20,20));
-    //newObject.setHoverFunction(hover_function);
-    newObject.hover_function = &hover_function;
 
     ////////////////////////
     //   STOP PLAYING!    //
@@ -39,10 +32,6 @@ int main()
         }
 
         window.clear(sf::Color::Red);
-
-        newObject.interaction(sf::Vector2f(10,10), false);
-
-        newMap.Render(window);
 
         window.display();
     }

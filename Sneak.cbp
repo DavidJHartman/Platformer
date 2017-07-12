@@ -14,7 +14,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-DSFML_STAIC" />
-					<Add directory="E:/Platformer/include" />
+					<Add directory="C:/Platformer/include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics-s-d" />
@@ -53,9 +53,18 @@
 		<Unit filename="include/Tilemap/Layer.hpp" />
 		<Unit filename="include/Tilemap/TileMap.hpp" />
 		<Unit filename="include/Tilemap/TileSet.hpp" />
+<<<<<<< HEAD
 		<Unit filename="include/Tree Structures/Node.hpp" />
 		<Unit filename="include/XML/tinyxml2.h" />
 		<Unit filename="src/TileMap.cpp" />
+=======
+		<Unit filename="include/TreeStructures/Node.hpp" />
+		<Unit filename="include/UI/UI.hpp" />
+		<Unit filename="include/XML/tinyxml2.h" />
+		<Unit filename="src/Tilemap/TileMap.cpp" />
+		<Unit filename="src/Tilemap/TileSet.cpp" />
+		<Unit filename="src/UI/UI.cpp" />
+>>>>>>> ba3203ab3d96a8e8365117d0c24b799fd030477e
 		<Unit filename="src/XML/tinyxml2.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>

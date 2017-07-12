@@ -11,3 +11,15 @@ void UIObject::interaction( sf::Vector2f mousePosition, bool clicked ) {
         hover_function(nullptr, nullptr);
     }
 }
+
+TexturedBox::TexturedBox( sf::Vector2f pos, std::string filename ) {
+    this->texture->loadFromFile( filename );
+}
+TexturedBox::TexturedBox( sf::Vector2f pos, sf::Sprite* sprite ) {
+    texture = nullptr;
+    this->sprite = sprite;
+}
+TexturedBox::TexturedBox( sf::Vector2f pos, sf::Texture* texture ) {
+    this->texture = texture;
+    sprite->setTexture(*(this->texture));
+}

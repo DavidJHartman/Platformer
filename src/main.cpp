@@ -1,13 +1,14 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include <CollisionDetection.hpp>
 
-using namespace std;
+#include <Tilemap/TileMap.hpp>
+#include <UI/UI.hpp>
 
 int main()
 {
 
     sf::RenderWindow window( sf::VideoMode( 800, 600 ), "Sneak" );
+    sf::View gameView;
+    window.setView(gameView);
     sf::Event event;
 
     ////////////////////////
@@ -21,13 +22,18 @@ int main()
     ////////////////////////
 
     while ( window.isOpen() ) {
+
+        //gameView.move(1,1);
+        //window.setView(gameView);
+
         while ( window.pollEvent( event ) ) {
             if ( event.type == sf::Event::Closed)
                 window.close();
         }
 
-        window.clear();
+        window.clear(sf::Color::Red);
 
         window.display();
     }
+    return 0;
 }

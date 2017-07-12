@@ -1,7 +1,7 @@
 #ifndef RECTANGLE_H_INCLUDED
 #define RECTANGLE_H_INCLUDED
 
-#include <VectorMath.hpp>
+#include <Primitives/VectorMath.hpp>
 
 template <class T>
 class Rectangle{

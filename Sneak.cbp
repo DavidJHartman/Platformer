@@ -44,11 +44,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/CollisionDetection.hpp" />
-		<Unit filename="include/Node.hpp" />
-		<Unit filename="include/Rectangle.h" />
-		<Unit filename="include/Vector2.hpp" />
-		<Unit filename="include/VectorMath.hpp" />
+		<Unit filename="include/Physics/CollisionDetection.hpp" />
+		<Unit filename="include/Primitives/Circle.hpp" />
+		<Unit filename="include/Primitives/Matrix.hpp" />
+		<Unit filename="include/Primitives/Rectangle.h" />
+		<Unit filename="include/Primitives/Vector2.hpp" />
+		<Unit filename="include/Primitives/VectorMath.hpp" />
+		<Unit filename="include/Tilemap/Layer.hpp" />
+		<Unit filename="include/Tilemap/TileMap.hpp" />
+		<Unit filename="include/Tilemap/TileSet.hpp" />
+		<Unit filename="include/TreeStructures/Node.hpp" />
+		<Unit filename="include/UI/GUIStyle.hpp" />
+		<Unit filename="include/UI/UI.hpp" />
+		<Unit filename="include/XML/tinyxml2.h" />
+		<Unit filename="src/Tilemap/TileMap.cpp" />
+		<Unit filename="src/Tilemap/TileSet.cpp" />
+		<Unit filename="src/UI/GUIStyle.cpp" />
+		<Unit filename="src/UI/UI.cpp" />
+		<Unit filename="src/XML/tinyxml2.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -1,6 +1,7 @@
 #ifndef VECTOR2_HPP_INCLUDED
 #define VECTOR2_HPP_INCLUDED
 #include <math.h>
+#include <iostream>
 
 
 enum VectorType {

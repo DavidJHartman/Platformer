@@ -21,4 +21,11 @@ bool circularCollision( Circle<T>& cir1, Circle<T>& cir2 ) {
     return true;
 
 }
+
+template <class T>
+bool seperatingAxisTheorem( Rectangle<T>& box1, Rectangle<T>& box2 ) {
+
+
+
+}
 #endif // COLLISIONDETECTION_HPP_INCLUDED

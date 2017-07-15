@@ -44,6 +44,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/GameStates/LevelEditor.hpp" />
 		<Unit filename="include/Physics/CollisionDetection.hpp" />
 		<Unit filename="include/Primitives/Circle.hpp" />
 		<Unit filename="include/Primitives/Matrix.hpp" />

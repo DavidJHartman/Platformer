@@ -1,0 +1,8 @@
+<UIObject type="textBox">
+	<position x="-80" y="0">
+	<dimensions x="80" y="600">
+	<TextToDisplay>
+		Parsing UI from XML
+	</TextToDisplay>
+	<wrapping bool="true">
+</UIObject>

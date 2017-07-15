@@ -6,6 +6,7 @@
 #include <Primitives/Circle.hpp>
 #include <Physics/CollisionDetection.hpp>
 #include <UI/GUIStyle.hpp>
+#include <vector>
 
 struct ButtonState {
     bool clickable = true;
@@ -27,6 +28,7 @@ protected:
     void** objectsInteractedWith;
     ButtonState State;
     UIObject** childObjects;
+    std::string title;
 
     GUIStyle* style;
 

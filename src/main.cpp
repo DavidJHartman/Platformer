@@ -3,10 +3,6 @@
 #include <Tilemap/TileMap.hpp>
 #include <UI/UI.hpp>
 
-void clicked_function(void** objectsInteractedWith, ButtonState* state) {
-    std::cout << "shit";
-}
-
 int main()
 {
 

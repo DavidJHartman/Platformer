@@ -11,11 +11,11 @@ public:
     sf::Color borderHighlightCol;
     sf::Color textCol;
     sf::Color textHighlightCol;
-    sf::Font* font;
+    sf::Font font;
 
     float borderSize;
 
-    GuiStyle(sf::Font* font, float borderSize,
+    GuiStyle(sf::Font font, float borderSize,
         sf::Color bodyCol, sf::Color borderCol, sf::Color textCol,
         sf::Color bodyHighlightCol, sf::Color borderHighlightCol, sf::Color textHighlightCol)
     {

@@ -15,55 +15,66 @@ struct ButtonState {
 };
 
 class UIObject {
-private:
-    void (*hover_function)(void** objectsInteractedWith, ButtonState* state);
-    void (*clicked_function)(void** objectsInteractedWith, ButtonState* state);
-    void (*released_function)(void** objectsInteractedWith, ButtonState* state);
+protected:
+    void (*hover_function)(void** objectsInteractedWith, ButtonState* state) = nullptr;
+    void (*clicked_function)(void** objectsInteractedWith, ButtonState* state) = nullptr;
+    void (*released_function)(void** objectsInteractedWith, ButtonState* state) = nullptr;
 
     Vector2f Position;
     RectangleFloat BoundingBox;
 
-    sf::RectangleShape rectangle;
 
     void** objectsInteractedWith;
+    ButtonState State;
     UIObject** childObjects;
 
     GUIStyle* style;
 
 public:
+    sf::RectangleShape rectangle;
 
-    void interaction(sf::Vector2f mousePosition, bool clicked);
+    void interaction(sf::Vector2i mousePosition, bool clicked);
+    void setPosition( float x, float y ) { Position = Vector2f( x, y ); }
+    void setSize( float x, float y ) { BoundingBox.HalfDimensions = Vector2f( x/2, y/2 ); }
 
-    void setStyle(GUIStyle* style) {this->style = style;}
     void setHoverFunction( void (*newHoverFunc)(void**, ButtonState*) ){ this->hover_function = newHoverFunc; }
     void setClickedFunction( void (*newClickedFunc)(void**, ButtonState*) ){ this->clicked_function = newClickedFunc; }
     void setReleasedFunction( void (*newReleasedFunc)(void**, ButtonState*) ){ this->released_function = newReleasedFunc; }
 
+    void setStyle( GUIStyle* style ) { this->style = style; }
+
     UIObject(){}
     UIObject(Vector2f Position, Vector2f Dimensions);
+
+    sf::Shape* getShape() { return &rectangle; }
+
+    virtual void Draw( sf::RenderWindow& window ) {
+        style->applyStyle(&rectangle);
+        rectangle.setPosition( sf::Vector2f(Position.x, Position.y) );
+        rectangle.setSize( sf::Vector2f( BoundingBox.HalfDimensions.x * 2, BoundingBox.HalfDimensions.y * 2) );
+        window.draw(rectangle);
+    }
 };
 
-class TextBox : UIObject {
+class TextBox : public UIObject {
 private:
     std::string TextToDisplay;
+    sf::Font font;
     bool Wrapping;
 
 public:
+    TextBox( Vector2f Position, Vector2f Dimensions, std::string TextToDisplay );
     void Draw( sf::RenderWindow& window );
 };
 
-class TexturedBox : UIObject {
-private:
-    sf::Texture* texture;
-    sf::Sprite* sprite;
-
+class TexturedBox : public UIObject {
 public:
-    void Draw( sf::RenderWindow& window );
+    sf::Texture* texture;
 
-    TexturedBox( sf::Vector2f pos, std::string filename );
-    TexturedBox( sf::Vector2f pos, sf::Sprite* sprite);
-    TexturedBox( sf::Vector2f pos, sf::Texture* texture);
+    TexturedBox( Vector2f Position, Vector2f Dimensions, std::string filename );
+    TexturedBox( Vector2f Position, Vector2f Dimensions, sf::Texture* texture);
+    TexturedBox( Vector2f Position, Vector2f Dimensions, int tileID );
+    TexturedBox( ){ }
 };
-
 
 #endif // UI_HPP_INCLUDED

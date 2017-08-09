@@ -15,28 +15,30 @@ struct ButtonState {
     bool moveable = false;
 };
 
+class UIObject;
+
+void DefaultDraw( sf::RenderWindow& window, UIObject& Widget );
+
 class UIObject {
-protected:
+public:
     void (*hover_function)(void** objectsInteractedWith, ButtonState* state) = nullptr;
     void (*clicked_function)(void** objectsInteractedWith, ButtonState* state) = nullptr;
     void (*released_function)(void** objectsInteractedWith, ButtonState* state) = nullptr;
 
-    Vector2f Position;
     RectangleFloat BoundingBox;
 
 
     void** objectsInteractedWith;
     ButtonState State;
-    UIObject** childObjects;
+    std::vector<UIObject> childObjects;
     std::string title;
 
-    GUIStyle* style;
+    void* Graphic = nullptr;
 
-public:
-    sf::RectangleShape rectangle;
+    GUIStyle* style = nullptr;
 
     void interaction(sf::Vector2i mousePosition, bool clicked);
-    void setPosition( float x, float y ) { Position = Vector2f( x, y ); }
+    void setPosition( float x, float y ) { BoundingBox.Position = Vector2f( x, y ); }
     void setSize( float x, float y ) { BoundingBox.HalfDimensions = Vector2f( x/2, y/2 ); }
 
     void setHoverFunction( void (*newHoverFunc)(void**, ButtonState*) ){ this->hover_function = newHoverFunc; }
@@ -44,39 +46,12 @@ public:
     void setReleasedFunction( void (*newReleasedFunc)(void**, ButtonState*) ){ this->released_function = newReleasedFunc; }
 
     void setStyle( GUIStyle* style ) { this->style = style; }
+    void setGraphic( void* Graphic ) { this->Graphic = Graphic; }
 
     UIObject(){}
     UIObject(Vector2f Position, Vector2f Dimensions);
 
-    sf::Shape* getShape() { return &rectangle; }
-
-    virtual void Draw( sf::RenderWindow& window ) {
-        style->applyStyle(&rectangle);
-        rectangle.setPosition( sf::Vector2f(Position.x, Position.y) );
-        rectangle.setSize( sf::Vector2f( BoundingBox.HalfDimensions.x * 2, BoundingBox.HalfDimensions.y * 2) );
-        window.draw(rectangle);
-    }
-};
-
-class TextBox : public UIObject {
-private:
-    std::string TextToDisplay;
-    sf::Font font;
-    bool Wrapping;
-
-public:
-    TextBox( Vector2f Position, Vector2f Dimensions, std::string TextToDisplay );
-    void Draw( sf::RenderWindow& window );
-};
-
-class TexturedBox : public UIObject {
-public:
-    sf::Texture* texture;
-
-    TexturedBox( Vector2f Position, Vector2f Dimensions, std::string filename );
-    TexturedBox( Vector2f Position, Vector2f Dimensions, sf::Texture* texture);
-    TexturedBox( Vector2f Position, Vector2f Dimensions, int tileID );
-    TexturedBox( ){ }
+    void (*Draw)( sf::RenderWindow& window, UIObject& Widget ) = DefaultDraw;
 };
 
 #endif // UI_HPP_INCLUDED

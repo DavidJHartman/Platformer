@@ -56,11 +56,13 @@
 		<Unit filename="include/Tilemap/TileSet.hpp" />
 		<Unit filename="include/TreeStructures/Node.hpp" />
 		<Unit filename="include/UI/GUIStyle.hpp" />
+		<Unit filename="include/UI/GUIWidgets.hpp" />
 		<Unit filename="include/UI/UI.hpp" />
 		<Unit filename="include/XML/tinyxml2.h" />
 		<Unit filename="src/Tilemap/TileMap.cpp" />
 		<Unit filename="src/Tilemap/TileSet.cpp" />
 		<Unit filename="src/UI/GUIStyle.cpp" />
+		<Unit filename="src/UI/GUIWidgets.cpp" />
 		<Unit filename="src/UI/UI.cpp" />
 		<Unit filename="src/XML/tinyxml2.cpp" />
 		<Unit filename="src/main.cpp" />

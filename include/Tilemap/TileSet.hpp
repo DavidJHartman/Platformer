@@ -28,7 +28,6 @@ public:
 
     bool LoadTileset( std::string filename );
     void Draw( sf::RenderWindow& window, int id, int x, int y );
-    void applyTileToTexturedUIObject( TexturedBox* box, int id );
 };
 
 #endif // TILESET_HPP_INCLUDED

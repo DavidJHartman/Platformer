@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <Tilemap/TileMap.hpp>
-#include <UI/UI.hpp>
+#include <UI/GUIWidgets.hpp>
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
 
     ////////////////////////
     // TESTING PLAYGROUND //
-    ////////////////////////
+    ////////////////////////;
 
 
 
@@ -29,6 +29,8 @@ int main()
         }
 
         window.clear(sf::Color::Black);
+
+        newObject.Draw(window, newObject);
 
         window.display();
     }

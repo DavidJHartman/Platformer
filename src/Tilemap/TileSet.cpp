@@ -32,9 +32,3 @@ bool TileSet::LoadTileset( std::string filename ) {
     sprite.setTexture(texture);
 
 }
-
-void TileSet::applyTileToTexturedUIObject( TexturedBox* box, int id ) {
-    box->texture = &texture;
-    box->rectangle.setTexture((box->texture));
-    box->rectangle.setTextureRect( sf::IntRect( id * tileWidth, 0, tileWidth, tileHeight ));
-}

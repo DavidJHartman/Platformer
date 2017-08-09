@@ -7,28 +7,38 @@ void generateTextBox( UIObject& newObject, Vector2f Position, Vector2f Dimension
         return;
     }
 
-    newObject.BoundingBox.Position = Position;
-    newObject.BoundingBox.HalfDimensions = Dimensions / 2;
+    newObject.setBoundingBox( Position, Dimensions );
+    generateStyledRectangle( newObject );
 
     if ( Wrapped )
         newObject.Draw = RenderWrappedTextBox;
-    else {}
-        //newObject.Draw = RenderUnwrappedTextBox;
+    else
+        newObject.Draw = RenderUnwrappedTextBox;
 
     newObject.objectsInteractedWith = (void**)malloc( 1 * sizeof( void* ) );
-    newObject.objectsInteractedWith[0] = new std::string(TextToDisplay);
+    newObject.objectsInteractedWith[0] = new std::string( TextToDisplay );
 
-    sf::RectangleShape* GUIRect = new sf::RectangleShape;
-    GUIRect->setOrigin(newObject.BoundingBox.HalfDimensions.x, newObject.BoundingBox.HalfDimensions.y );
-    GUIRect->setPosition( sf::Vector2f(newObject.BoundingBox.Position.x, newObject.BoundingBox.Position.y) );
-    GUIRect->setSize( sf::Vector2f( newObject.BoundingBox.HalfDimensions.x * 2, newObject.BoundingBox.HalfDimensions.y * 2) );
+}
 
-    newObject.Graphic = (void*)GUIRect;
+void generateTileBox( UIObject& newObject, Vector2f Position, Vector2f Dimensions, std::vector<TileSet*> tileSets ) {
+
+    if ( newObject.style == nullptr ) {
+        std::cerr << "You must apply a style to a UIObject before generating a text box!" << std::endl;
+        return;
+    }
+
+    newObject.setBoundingBox( Position, Dimensions );
+    generateStyledRectangle( newObject );
+
+    newObject.objectsInteractedWith = (void**)malloc( tileSets.size() * sizeof( void* ) );
+    for ( int i = 0; i < tileSets.size(); i++ ) {
+        TileSet* tempTileSet = tileSets[i];
+    }
 
 }
 
 void RenderUnwrappedTextBox( sf::RenderWindow& window, UIObject& TextBox ) {
-
+    std::cerr << "This function has not been designed yet Sorry \n";
 }
 
 void RenderWrappedTextBox( sf::RenderWindow& window, UIObject& TextBox ) {
@@ -71,4 +81,13 @@ void RenderWrappedTextBox( sf::RenderWindow& window, UIObject& TextBox ) {
     text.setFillColor( sf::Color::White);
 
     window.draw(text);
+}
+
+void generateStyledRectangle( UIObject& newObject ) {
+    sf::RectangleShape* GUIRect = new sf::RectangleShape;
+    GUIRect->setOrigin(newObject.BoundingBox.HalfDimensions.x, newObject.BoundingBox.HalfDimensions.y );
+    GUIRect->setPosition( sf::Vector2f(newObject.BoundingBox.Position.x, newObject.BoundingBox.Position.y) );
+    GUIRect->setSize( sf::Vector2f( newObject.BoundingBox.HalfDimensions.x * 2, newObject.BoundingBox.HalfDimensions.y * 2) );
+
+    newObject.Graphic = (void*)GUIRect;
 }

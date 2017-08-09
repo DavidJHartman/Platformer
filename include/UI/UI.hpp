@@ -47,11 +47,13 @@ public:
 
     void setStyle( GUIStyle* style ) { this->style = style; }
     void setGraphic( void* Graphic ) { this->Graphic = Graphic; }
+    void setBoundingBox( Vector2f Position, Vector2f Dimensions );
 
     UIObject(){}
     UIObject(Vector2f Position, Vector2f Dimensions);
 
     void (*Draw)( sf::RenderWindow& window, UIObject& Widget ) = DefaultDraw;
 };
+
 
 #endif // UI_HPP_INCLUDED

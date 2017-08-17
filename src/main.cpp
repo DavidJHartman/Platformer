@@ -30,8 +30,6 @@ int main()
 
         window.clear(sf::Color::Black);
 
-        newObject.Draw(window, newObject);
-
         window.display();
     }
     return 0;

@@ -1,6 +1,7 @@
 #ifndef GUIWIDGETS_HPP_INCLUDED
 #define GUIWIDGETS_HPP_INCLUDED
 #include <UI/UI.hpp>
+#include <Tilemap/TileSet.hpp>
 
 void RenderWrappedTextBox( sf::RenderWindow& window, UIObject& TextBox );
 void RenderUnwrappedTextBox( sf::RenderWindow& window, UIObject& TextBox );

@@ -1,22 +1,73 @@
 #include <UI/GUIWidgets.hpp>
 
+/*
+
+    THE STANDARD GUI FUNCTION GOES LIKE THIS:
+
+    void generateNameOfObject( UIObject& newObject, Vector2f Position, Vector2f Dimensions, data relevant to button, relevant info ) {
+
+        ERROR CATCHING
+
+        DEFINE newObject
+
+        DEFINE STATE OF OBJECT
+
+        FILL IN objectsInteractedWith
+
+    }
+
+
+*/
+
 void generateTextBox( UIObject& newObject, Vector2f Position, Vector2f Dimensions, std::string TextToDisplay, bool Wrapped ){
 
+    // ERROR CATCHING TO SEE IF YOU HAVE SET A STYLE FOR THE UIOBJECT
+    /*
+        This is important because it is used to define the actual object itself,
+        as in the colors, size of the border, transparency and everything. It is
+        important to use styles to have a consistent look everywhere.
+    */
     if ( newObject.style == nullptr ) {
         std::cerr << "You must apply a style to a UIObject before generating a text box!" << std::endl;
         return;
     }
 
+    /*
+        Unless your UIObject will never be interacted with, these functions will always be used, the first
+        to set up collision detection as well as where it exists in space, the second to apply the style to
+        the graphic. Remember, we use a lot of C rather than C++ here because of so many pointers being thrown
+        around. It's very low level stuff.
+    */
     newObject.setBoundingBox( Position, Dimensions );
     generateStyledRectangle( newObject );
 
+    // These are specific to the textbox itself
     if ( Wrapped )
         newObject.Draw = RenderWrappedTextBox;
     else
         newObject.Draw = RenderUnwrappedTextBox;
 
+    /*
+        This is where shit gets weird. The buttons have a void** that keep a list of pointers to things they
+        interact with. This lets us do cool shit like have a UIObject that shits out a framerate as a graph
+        if we want or have thumbnails of our sprites or whatever we want. A void* is a pointer to anything or
+            nothing. So what we do is
+            1. Cast the malloc as a (void**) // an array of void*
+            2. call malloc // the c function for allocating dynamic memory
+            3. the arguments for malloc are always ( amount * sizeof( object ) )
+        in all, the line we use first says " I want a pointer to a block of memory the size of one pointer that is of type void** "
+    */
     newObject.objectsInteractedWith = (void**)malloc( 1 * sizeof( void* ) );
+
+    // We then can do this
     newObject.objectsInteractedWith[0] = new std::string( TextToDisplay );
+
+    /* But we could also do this:
+        newObject.objectsInteractedWith[0] = (void*)malloc( sizeof(void*) );
+        (*newObject.objectsInteractedWith[0]) = std::string( TextToDisplay );
+
+        but instead I used a bit of C++ (the new keyword) to skip some shit.
+    */
 
 }
 
@@ -32,7 +83,8 @@ void generateTileBox( UIObject& newObject, Vector2f Position, Vector2f Dimension
 
     newObject.objectsInteractedWith = (void**)malloc( tileSets.size() * sizeof( void* ) );
     for ( int i = 0; i < tileSets.size(); i++ ) {
-        TileSet* tempTileSet = tileSets[i];
+        newObject.objectsInteractedWith[i] = (void*)malloc( sizeof( void* ) );
+        newObject.objectsInteractedWith[i] = tileSets[i];
     }
 
 }
